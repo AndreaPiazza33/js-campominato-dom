@@ -3,8 +3,6 @@ const myButton =document.getElementById('generator')
 const myGrid =document.getElementById('grid')
 
 
-
-
 //evento al click del bottone
 myButton.addEventListener('click', function () {
     
@@ -12,7 +10,13 @@ myButton.addEventListener('click', function () {
 let difficultyChoice = document.getElementById('difficulty-choice')
 let cellMax = parseInt(difficultyChoice.value)
 myGrid.innerHTML = '' 
-
+//generazione delle bombe
+let bombs = [];
+while(bombs.length < 16){
+    let randomBombs = Math.floor(Math.random() * cellMax) + 1;
+    if(bombs.indexOf(randomBombs) === -1) bombs.push(randomBombs);
+}
+console.log(bombs);
 if (cellMax == 100) {
     generatedGrid100()
 }
@@ -93,3 +97,4 @@ function generatedGrid49() {
     }  
     }    
     }
+
